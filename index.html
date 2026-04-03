@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111827" />
+    <title>Nooze</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Nooze</h1>
+      <p class="subtitle">Offline-friendly reader for your selected sources.</p>
+    </header>
+
+    <main class="layout">
+      <aside class="controls" aria-label="Feed Controls">
+        <section>
+          <h2>Sources</h2>
+          <div id="source-controls" class="source-controls"></div>
+        </section>
+
+        <section>
+          <h2>Time window</h2>
+          <label for="days-back">Show content from last</label>
+          <div class="inline-row">
+            <input id="days-back" type="number" min="1" max="365" value="30" />
+            <span>days</span>
+          </div>
+        </section>
+
+        <section>
+          <button id="refresh-btn" type="button">Refresh now</button>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+          <p id="last-sync" class="sync"></p>
+        </section>
+      </aside>
+
+      <section class="feed-area" aria-label="News Feed">
+        <ul id="feed" class="feed"></ul>
+      </section>
+    </main>
+
+    <template id="feed-item-template">
+      <li class="feed-item">
+        <h3><a target="_blank" rel="noopener noreferrer"></a></h3>
+        <p class="meta"></p>
+        <p class="content"></p>
+      </li>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
